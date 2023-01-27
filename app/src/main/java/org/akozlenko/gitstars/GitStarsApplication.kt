@@ -2,6 +2,7 @@ package org.akozlenko.gitstars
 
 import androidx.multidex.MultiDexApplication
 import org.akozlenko.gitstars.di.apiModule
+import org.akozlenko.gitstars.di.repositoriesModule
 import org.akozlenko.gitstars.di.utilsModule
 import org.akozlenko.gitstars.di.viewModelsModule
 import org.koin.android.ext.koin.androidContext
@@ -19,8 +20,9 @@ class GitStarsApplication : MultiDexApplication() {
             androidContext(applicationContext)
             // Modules
             modules(
-                apiModule,
                 utilsModule,
+                apiModule,
+                repositoriesModule,
                 viewModelsModule
             )
         }

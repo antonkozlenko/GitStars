@@ -2,7 +2,7 @@ package org.akozlenko.gitstars
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import org.akozlenko.gitstars.ui.main.MainFragment
+import org.akozlenko.gitstars.ui.search.SearchRepositoriesFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, SearchRepositoriesFragment.newInstance())
                 .commitNow()
         }
     }

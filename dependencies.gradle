@@ -20,6 +20,7 @@ versions.material = "1.4.0"
 versions.appcompat = "1.4.2"
 versions.constraint_layout = "2.1.4"
 versions.recycler_view = "1.2.1"
+versions.paging = "3.0.0"
 //============================
 
 // Architecture components
@@ -52,6 +53,7 @@ androidx.appcompat_resources = "androidx.appcompat:appcompat-resources:$versions
 androidx.material = "com.google.android.material:material:$versions.material"
 androidx.recycler_view = "androidx.recyclerview:recyclerview:$versions.recycler_view"
 androidx.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
+androidx.paging = "androidx.paging:paging-runtime:$versions.paging"
 deps.androidx = androidx
 
 def lifecycle = [:]
