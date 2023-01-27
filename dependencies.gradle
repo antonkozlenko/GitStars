@@ -1,0 +1,111 @@
+/**
+ * Shared file between builds so that they can all use the same dependencies and
+ * maven repositories.
+ **/
+ext.deps = [:]
+def versions = [:]
+
+// Plugins
+versions.kotlin = "1.5.31"
+versions.kotlin_coroutines = "1.5.2"
+versions.android_gradle_plugin = '7.2.0'
+
+// DI
+versions.koin = "3.1.2"
+
+//======== AndroidX ==========
+versions.multidex = "2.0.1"
+versions.core_ktx = "1.8.0"
+versions.material = "1.4.0"
+versions.appcompat = "1.4.2"
+versions.constraint_layout = "2.1.4"
+versions.recycler_view = "1.2.1"
+//============================
+
+// Architecture components
+versions.lifecycle = "2.4.1"
+
+// Networking
+versions.gson = "2.9.0"
+versions.okhttp = "4.9.1"
+versions.retrofit = "2.9.0"
+
+// Testing
+versions.junit = "4.13.2"
+
+// Formatting
+versions.jodatimeAndroid = "2.10.14"
+versions.jodatime = "2.10.14"
+
+// Glide
+versions.glide = "4.13.2"
+
+ext.versions = versions
+
+def deps = [:]
+
+def androidx = [:]
+androidx.multidex = "androidx.multidex:multidex:$versions.multidex"
+androidx.core_ktx = "androidx.core:core-ktx:$versions.core_ktx"
+androidx.appcompat = "androidx.appcompat:appcompat:$versions.appcompat"
+androidx.appcompat_resources = "androidx.appcompat:appcompat-resources:$versions.appcompat"
+androidx.material = "com.google.android.material:material:$versions.material"
+androidx.recycler_view = "androidx.recyclerview:recyclerview:$versions.recycler_view"
+androidx.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
+deps.androidx = androidx
+
+def lifecycle = [:]
+//lifecycle.livedata = "androidx.lifecycle:lifecycle-livedata:$versions.lifecycle"
+lifecycle.livedata_ktx = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle"
+lifecycle.viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
+deps.lifecycle = lifecycle
+
+def retrofit = [:]
+retrofit.runtime = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.converter_gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+deps.retrofit = retrofit
+
+deps.okhttp = "com.squareup.okhttp3:okhttp:$versions.okhttp"
+
+def kotlin = [:]
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
+kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+//kotlin.reflect = "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin"
+kotlin.coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlin_coroutines"
+kotlin.coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.kotlin_coroutines"
+//kotlin.coroutines_test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.kotlin_coroutines"
+deps.kotlin = kotlin
+
+def formatting = [:]
+// https://github.com/dlew/joda-time-android
+formatting.jodatimeAndroid = "net.danlew:android.joda:$versions.jodatimeAndroid"
+// https://github.com/JodaOrg/joda-time
+formatting.jodatime = "joda-time:joda-time:$versions.jodatime"
+deps.formatting = formatting
+
+// Tools
+deps.glide = "com.github.bumptech.glide:glide:$versions.glide"
+deps.glide_compiler = "com.github.bumptech.glide:compiler:$versions.glide"
+deps.junit = "junit:junit:$versions.junit"
+
+def koin = [:]
+koin.koin_android = "io.insert-koin:koin-android:$versions.koin"
+deps.koin = koin
+
+// Plugins
+deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+ext.deps = deps
+
+static def addRepos(RepositoryHandler handler) {
+    handler.google()
+
+    handler.mavenCentral()
+
+    handler.maven { url "https://jitpack.io" }
+    handler.maven {
+        url 'https://maven.google.com/'
+        name 'Google'
+    }
+    handler.maven { url "https://plugins.gradle.org/m2/" }
+}
+ext.addRepos = this.&addRepos
