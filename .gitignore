@@ -1,0 +1,25 @@
+# generated files
+bin/
+gen/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Intellij project files
+*.iws
+*.iml
+/.idea
+/out
+
+.gradle/
+/build
+**/build/*
+**/schemas/*
+
+## generic files to ignore
+*~
+*.DS_Store
+*.out
+*Thumbs.db
+.bundle/
+vendor/
