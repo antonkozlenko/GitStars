@@ -34,10 +34,6 @@ versions.retrofit = "2.9.0"
 // Testing
 versions.junit = "4.13.2"
 
-// Formatting
-versions.jodatimeAndroid = "2.10.14"
-versions.jodatime = "2.10.14"
-
 // Glide
 versions.glide = "4.13.2"
 
@@ -57,7 +53,6 @@ androidx.paging = "androidx.paging:paging-runtime:$versions.paging"
 deps.androidx = androidx
 
 def lifecycle = [:]
-//lifecycle.livedata = "androidx.lifecycle:lifecycle-livedata:$versions.lifecycle"
 lifecycle.livedata_ktx = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle"
 lifecycle.viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
 deps.lifecycle = lifecycle
@@ -77,13 +72,6 @@ kotlin.coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version
 kotlin.coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.kotlin_coroutines"
 //kotlin.coroutines_test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.kotlin_coroutines"
 deps.kotlin = kotlin
-
-def formatting = [:]
-// https://github.com/dlew/joda-time-android
-formatting.jodatimeAndroid = "net.danlew:android.joda:$versions.jodatimeAndroid"
-// https://github.com/JodaOrg/joda-time
-formatting.jodatime = "joda-time:joda-time:$versions.jodatime"
-deps.formatting = formatting
 
 // Tools
 deps.glide = "com.github.bumptech.glide:glide:$versions.glide"

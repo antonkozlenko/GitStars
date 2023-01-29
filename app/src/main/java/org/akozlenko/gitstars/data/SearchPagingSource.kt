@@ -21,6 +21,7 @@ class SearchPagingSource(
         return try {
             val searchResult = apiService.searchRepositories(
                 queryString = query,
+                pageSize = PAGE_SIZE,
                 page = page
             ).items.map {
                 convertRepoDataToModel(it)
@@ -31,14 +32,14 @@ class SearchPagingSource(
                 prevKey = if (page == DEFAULT_PAGE_INDEX)
                     null
                 else
-                    page - 1,
+                    page.dec(),
                 nextKey = if (searchResult.isEmpty())
                     null
                 else
-                    page + 1
+                    page.inc()
             )
-        } catch (exception: Exception) {
-            return LoadResult.Error(exception)
+        } catch (error: Throwable) {
+            return LoadResult.Error(error)
         }
     }
 
@@ -49,13 +50,14 @@ class SearchPagingSource(
         // that was closest to the most recently accessed index.
         // Anchor position is the most recently accessed index.
         return state.anchorPosition?.let { anchorPosition ->
-            state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
-                ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)
+            state.closestPageToPosition(anchorPosition)?.prevKey?.inc()
+                ?: state.closestPageToPosition(anchorPosition)?.nextKey?.dec()
         }
     }
 
     companion object {
-        private const val DEFAULT_PAGE_INDEX = 0
+        const val DEFAULT_PAGE_INDEX = 0
+        const val PAGE_SIZE = 30
 
         private fun convertRepoDataToModel(
             data: RepositoryResponseData

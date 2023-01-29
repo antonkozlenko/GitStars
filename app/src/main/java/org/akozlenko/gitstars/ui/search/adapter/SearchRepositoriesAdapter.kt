@@ -1,6 +1,5 @@
 package org.akozlenko.gitstars.ui.search.adapter
 
-import android.util.Log
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import org.akozlenko.gitstars.model.RepositoryInfo
@@ -18,7 +17,6 @@ class SearchRepositoriesAdapter : PagingDataAdapter<
     }
 
     override fun onBindViewHolder(holder: RepositoryItemViewHolder, position: Int) {
-        Log.e("SearchAdapter", "BIND at $position")
         holder.bind(getItem(position))
     }
 }

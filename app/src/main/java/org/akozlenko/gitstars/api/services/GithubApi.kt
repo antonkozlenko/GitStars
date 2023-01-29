@@ -13,6 +13,7 @@ interface GithubApi {
         @Query("q") queryString: String,
         @Query("sort") sorting: String = PARAM_SORT,
         @Query("order") order: String = PARAM_ORDER,
+        @Query("per_page") pageSize: Int,
         @Query("page") page: Int? = null
     ): SearchResultResponseData
 

@@ -9,8 +9,7 @@ val viewModelsModule = module {
     viewModel {
         SearchRepositoriesViewModel(
             repository = get(),
-            deviceInfoProvider = get(),
-            disaptcherProvider = get()
+            deviceInfoProvider = get()
         )
     }
 

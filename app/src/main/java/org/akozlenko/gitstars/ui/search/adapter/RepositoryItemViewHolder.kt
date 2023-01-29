@@ -1,10 +1,11 @@
 package org.akozlenko.gitstars.ui.search.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import org.akozlenko.gitstars.R
 import org.akozlenko.gitstars.databinding.ItemRepositoryInfoBinding
 import org.akozlenko.gitstars.model.RepositoryInfo
 
@@ -16,23 +17,31 @@ class RepositoryItemViewHolder(
     private val repoDescriptionView = itemBinding.repositoryDescription
     private val repoStarsView = itemBinding.repositoryStarsValue
     private val usernameView = itemBinding.repositoryOwnerUsername
-    private val usernameIcon = itemBinding.usernameAvatar
+    private val usernameIcon = itemBinding.ownerAvatar
 
     private lateinit var repoItem: RepositoryInfo
 
     fun bind(item: RepositoryInfo?) {
-        Log.e("SearchVH", "BIND -> $item")
         item?.let {
             repoItem = it
             // Update views
             with(repoItem) {
+                // Repository name
                 repoNameView.text = name
-                repoDescriptionView.text = description ?: "N/A"
+                // Description
+                if (description?.isNotBlank() == true) {
+                    repoDescriptionView.text = description
+                } else {
+                    repoDescriptionView.setText(R.string.missing_description_text)
+                }
+                // Repository stars
                 repoStarsView.text = stars.toString()
+                // Owner's username
                 usernameView.text = owner.username
-                // Load avatar
+                // Owner's avatar
                 Glide.with(itemView)
                     .load(owner.avatarUrl)
+                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                     .into(usernameIcon)
             }
         }
