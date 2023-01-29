@@ -33,6 +33,7 @@ versions.retrofit = "2.9.0"
 
 // Testing
 versions.junit = "4.13.2"
+versions.mockk = "1.12.0"
 
 // Glide
 versions.glide = "4.13.2"
@@ -67,16 +68,16 @@ deps.okhttp = "com.squareup.okhttp3:okhttp:$versions.okhttp"
 def kotlin = [:]
 kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
 kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
-//kotlin.reflect = "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin"
 kotlin.coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlin_coroutines"
 kotlin.coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.kotlin_coroutines"
-//kotlin.coroutines_test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.kotlin_coroutines"
+kotlin.coroutines_test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.kotlin_coroutines"
 deps.kotlin = kotlin
 
 // Tools
 deps.glide = "com.github.bumptech.glide:glide:$versions.glide"
 deps.glide_compiler = "com.github.bumptech.glide:compiler:$versions.glide"
 deps.junit = "junit:junit:$versions.junit"
+deps.mockk = "io.mockk:mockk:$versions.mockk"
 
 def koin = [:]
 koin.koin_android = "io.insert-koin:koin-android:$versions.koin"

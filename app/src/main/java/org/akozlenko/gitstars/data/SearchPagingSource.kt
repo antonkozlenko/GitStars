@@ -23,17 +23,18 @@ class SearchPagingSource(
                 queryString = query,
                 pageSize = PAGE_SIZE,
                 page = page
-            ).items.map {
+            )
+            val repositories = searchResult.items.map {
                 convertRepoDataToModel(it)
             }
             // Prepare result
             LoadResult.Page(
-                data = searchResult,
+                data = repositories,
                 prevKey = if (page == DEFAULT_PAGE_INDEX)
                     null
                 else
                     page.dec(),
-                nextKey = if (searchResult.isEmpty())
+                nextKey = if (repositories.isEmpty())
                     null
                 else
                     page.inc()

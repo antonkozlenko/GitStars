@@ -76,6 +76,8 @@ dependencies {
 
     // Testing
     testImplementation deps.junit
+    testImplementation deps.kotlin.coroutines_test
+    testImplementation deps.mockk
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'

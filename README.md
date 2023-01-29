@@ -15,6 +15,7 @@ but it might be useful in training purposes, e.g. to see how Paging 3 works and 
 * [OkHttp](https://github.com/square/okhttp)
 * [KOIN](https://github.com/InsertKoinIO/koin)
 * [Glide](https://github.com/bumptech/glide)
+* [MockK](https://github.com/mockk/mockk)
 
 ## Prerequisites
 
