@@ -1,4 +1,4 @@
-package org.akozlenko.gitstars.ui.search.adapter
+package org.akozlenko.gitstars.ui.search.adapters.results
 
 import androidx.recyclerview.widget.DiffUtil
 import org.akozlenko.gitstars.model.RepositoryInfo

@@ -9,7 +9,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.launch
 import org.akozlenko.gitstars.databinding.FragmentSearchRepositoriesBinding
-import org.akozlenko.gitstars.ui.search.adapter.SearchRepositoriesAdapter
+import org.akozlenko.gitstars.ui.search.adapters.results.SearchRepositoriesAdapter
+import org.akozlenko.gitstars.ui.search.adapters.state.SearchStateAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchRepositoriesFragment : Fragment() {
@@ -17,6 +18,7 @@ class SearchRepositoriesFragment : Fragment() {
     private val viewModel: SearchRepositoriesViewModel by viewModel()
 
     private lateinit var searchAdapter : SearchRepositoriesAdapter
+    private lateinit var searchStateAdapter : SearchStateAdapter
 
     private var binding: FragmentSearchRepositoriesBinding? = null
 
@@ -43,17 +45,21 @@ class SearchRepositoriesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         searchAdapter = SearchRepositoriesAdapter()
+        searchStateAdapter = SearchStateAdapter {
+            searchAdapter.retry()
+        }
         initViews()
         // Load
         loadPageContent()
     }
 
     private fun initViews() {
-        // List
+        // Search results
         binding?.searchResults?.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = searchAdapter
+            adapter = searchAdapter.withLoadStateFooter(searchStateAdapter)
         }
+
     }
 
     private fun loadPageContent() {

@@ -7,6 +7,7 @@ import org.akozlenko.gitstars.api.model.RepositoryResponseData
 import org.akozlenko.gitstars.api.services.GithubApi
 import org.akozlenko.gitstars.model.RepositoryInfo
 import org.akozlenko.gitstars.model.RepositoryOwnerIfo
+import kotlin.math.roundToInt
 
 class SearchPagingSource(
     private val apiService: GithubApi,

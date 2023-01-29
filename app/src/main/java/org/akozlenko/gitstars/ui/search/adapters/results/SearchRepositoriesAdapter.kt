@@ -1,8 +1,10 @@
-package org.akozlenko.gitstars.ui.search.adapter
+package org.akozlenko.gitstars.ui.search.adapters.results
 
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import org.akozlenko.gitstars.model.RepositoryInfo
+import org.akozlenko.gitstars.ui.search.adapters.results.RepositoryInfoDiffCallback
+import org.akozlenko.gitstars.ui.search.adapters.results.RepositoryItemViewHolder
 
 class SearchRepositoriesAdapter : PagingDataAdapter<
         RepositoryInfo,
