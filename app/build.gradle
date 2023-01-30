@@ -61,6 +61,7 @@ dependencies {
     implementation deps.androidx.constraint_layout
     implementation deps.androidx.multidex
     implementation deps.androidx.paging
+    implementation deps.androidx.navigation_fragment
 
     // Architecture Components
     implementation deps.lifecycle.livedata_ktx

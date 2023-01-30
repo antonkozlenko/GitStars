@@ -17,6 +17,7 @@ class SearchStateViewHolder private constructor(
     private val failedText = itemBinding.loadFailedText
 
     init {
+        // Set RETRY listener
         retryButton.setOnClickListener {
             retryCall()
         }
@@ -52,7 +53,7 @@ class SearchStateViewHolder private constructor(
 
         fun create(
             parent: ViewGroup,
-            retryCall: () -> Unit
+            retryCall: () -> Unit,
         ): SearchStateViewHolder {
             val view = ItemLoadStateBinding.inflate(
                 LayoutInflater.from(parent.context),
