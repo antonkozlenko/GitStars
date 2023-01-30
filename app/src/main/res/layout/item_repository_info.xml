@@ -5,13 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
+    android:padding="@dimen/margin_small"
     android:background="@color/white">
 
     <ImageView
         android:id="@+id/owner_avatar"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="@dimen/avatar_image_size"
+        android:layout_height="@dimen/avatar_image_size"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:scaleType="fitCenter"/>
@@ -23,9 +23,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@+id/owner_avatar"
         app:layout_constraintEnd_toStartOf="@+id/repository_stars_icon"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="@dimen/margin_small"
         android:gravity="start"
-        android:textSize="18sp"
+        android:textSize="@dimen/text_size_large"
         android:textColor="@color/design_default_color_primary_dark"
         tools:text="TestRepo" />
 
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/repository_name"
         app:layout_constraintStart_toStartOf="@+id/repository_name"
-        android:textSize="12sp"
+        android:textSize="@dimen/text_size_small"
         android:textColor="@color/teal_700"
         tools:text="test_user15" />
 
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toTopOf="@+id/repository_stars_icon"
         app:layout_constraintBottom_toBottomOf="@+id/repository_stars_icon"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="12sp"
+        android:textSize="@dimen/text_size_small"
         android:textColor="@color/black"
         tools:text="4500" />
 
@@ -66,9 +66,9 @@
         app:layout_constraintTop_toBottomOf="@+id/repository_owner_username"
         app:layout_constraintStart_toStartOf="@+id/repository_name"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="@dimen/margin_extra_small"
         android:gravity="start"
-        android:textSize="14sp"
+        android:textSize="@dimen/text_size_normal"
         android:textColor="@color/black"
         tools:text="Some repo test description" />
 

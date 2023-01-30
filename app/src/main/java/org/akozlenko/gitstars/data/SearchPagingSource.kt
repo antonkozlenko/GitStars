@@ -59,7 +59,7 @@ class SearchPagingSource(
 
     companion object {
         const val DEFAULT_PAGE_INDEX = 0
-        const val PAGE_SIZE = 30
+        const val PAGE_SIZE = 100
 
         private fun convertRepoDataToModel(
             data: RepositoryResponseData
